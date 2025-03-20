@@ -178,6 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5089243528592843549}
   - component: {fileID: 4291422465829008619}
+  - component: {fileID: 6799182153503830307}
   m_Layer: 0
   m_Name: space invader 1
   m_TagString: Untagged
@@ -255,6 +256,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6799182153503830307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7216132671700658597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad5a3df060879fe45b6f14b1e8b507bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  t: 0
+  maxgrow: 1
 --- !u!1 &7487013098945364374
 GameObject:
   m_ObjectHideFlags: 0
