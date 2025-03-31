@@ -30,5 +30,6 @@ public class Shooting : MonoBehaviour
     public void BulletSpawn()
     {
         Instantiate(bullet); 
+        
     }
 }
