@@ -219,7 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ed0f1de7f42bf14bab8c0a1b806336d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onClick:
+  shieldMe:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 767878240}
@@ -236,6 +236,8 @@ MonoBehaviour:
         m_CallState: 2
   enemy: {fileID: 767878238}
   shield: {fileID: 5709471902826075264, guid: be06dbb6f90dbfe4ca000cf42e568a9f, type: 3}
+  cooldown: 0
+  time: 0
 --- !u!1 &1071292695
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,7 +419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efcea46ab210d4e4c85b8911aac511a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onClick:
+  shoot:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1453295903}

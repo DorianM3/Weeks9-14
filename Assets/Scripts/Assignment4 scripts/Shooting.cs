@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class Shooting : MonoBehaviour
 {
-    public UnityEvent onClick;
+    public UnityEvent shoot;
     public SpriteRenderer player;
     public GameObject bullet; 
     // Start is called before the first frame update
@@ -22,7 +22,7 @@ public class Shooting : MonoBehaviour
         {
             if (player.bounds.Contains(characterclick))
             {
-                onClick.Invoke(); 
+                shoot.Invoke(); 
             }
         }
     }
