@@ -29,7 +29,9 @@ public class Shooting : MonoBehaviour
 
     public void BulletSpawn()
     {
-        Instantiate(bullet); 
+
+        GameObject newbullet = Instantiate(bullet);
+        Destroy(newbullet, 3.2f); 
         
     }
 }
