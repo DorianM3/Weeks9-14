@@ -29,6 +29,7 @@ public class Shield : MonoBehaviour
 
     public void ShieldSpawn()
     {
-        Instantiate(shield); 
+       GameObject shieldspawn = Instantiate(shield);
+       Destroy(shieldspawn, 0.5f); 
     }
 }

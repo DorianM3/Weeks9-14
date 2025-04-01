@@ -132,6 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 767878239}
   - component: {fileID: 767878238}
+  - component: {fileID: 767878240}
   m_Layer: 0
   m_Name: enemy
   m_TagString: Untagged
@@ -206,6 +207,35 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &767878240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767878237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ed0f1de7f42bf14bab8c0a1b806336d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 767878240}
+        m_TargetAssemblyTypeName: Shield, Assembly-CSharp
+        m_MethodName: ShieldSpawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  enemy: {fileID: 767878238}
+  shield: {fileID: 5709471902826075264, guid: be06dbb6f90dbfe4ca000cf42e568a9f, type: 3}
 --- !u!1 &1071292695
 GameObject:
   m_ObjectHideFlags: 0
