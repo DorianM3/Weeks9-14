@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 767878239}
   - component: {fileID: 767878238}
   - component: {fileID: 767878240}
+  - component: {fileID: 767878241}
   m_Layer: 0
   m_Name: enemy
   m_TagString: Untagged
@@ -238,6 +239,37 @@ MonoBehaviour:
   shield: {fileID: 5709471902826075264, guid: be06dbb6f90dbfe4ca000cf42e568a9f, type: 3}
   cooldown: 0
   time: 0
+--- !u!114 &767878241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767878237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1071e5c1c0279744a9d3f3fd2e4b69f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 0
+  canShoot: 0
+  bullet: {fileID: 6342089104124206471, guid: d3c2a411cfec6b546ada8bbcba68265f, type: 3}
+  timer: 0
+  shoot:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 767878241}
+        m_TargetAssemblyTypeName: EnemyShooting, Assembly-CSharp
+        m_MethodName: EnemyBulletSpawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1071292695
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,12 +9,13 @@ public class Shield : MonoBehaviour
     public SpriteRenderer enemy;
     public GameObject shield;
     public bool cooldown;
-    public float time; 
+    public float time;
+    public float cooldownSpeed; 
     // Start is called before the first frame update
     void Start()
     {
         cooldown = true;
-        time = 0; 
+        cooldownSpeed = 2;  
     }
 
     // Update is called once per frame
@@ -42,7 +43,7 @@ public class Shield : MonoBehaviour
             GameObject shieldspawn = Instantiate(shield);
             Destroy(shieldspawn, 0.5f);
             cooldown = false;
-            time = 0; 
+            time = 1; 
         }
 
         
@@ -52,7 +53,7 @@ public class Shield : MonoBehaviour
     {
         while (time < 1000)
         {
-          time += Time.deltaTime / 8;
+          time += cooldownSpeed * Time.deltaTime;
           yield return null;  
         }
 
