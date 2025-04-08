@@ -8,6 +8,7 @@ public class Shield : MonoBehaviour
     public UnityEvent shieldMe;
     public SpriteRenderer enemy;
     public GameObject shield;
+    public Shooting shieldScore; 
 
     public bool cooldown;
 
@@ -36,6 +37,7 @@ public class Shield : MonoBehaviour
     {
         if (cooldown)
         {
+            shieldScore.scoreUp.Invoke(); 
             shieldspawn = Instantiate(shield);
             cooldown = false;
             StartCoroutine(ShieldCooldownTimer());
