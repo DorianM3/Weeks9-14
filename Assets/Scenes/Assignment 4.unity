@@ -507,7 +507,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   playerscript: {fileID: 1453295903}
-  enemy: {fileID: 767878240}
+  enemyShootingShield: {fileID: 767878240}
 --- !u!1 &1071292695
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,7 +12,7 @@ public class EnemyBullet : MonoBehaviour
     public Vector2 bulletspeed;
 
     //Allows me to call variables from a different script 
-    public Shield enemy; 
+    public Shield shield; 
 
 
     void Start()
@@ -32,7 +32,7 @@ public class EnemyBullet : MonoBehaviour
         if (transform.position.x >= -9.5f && transform.position.x <= -8.1f)
         {
             //Checks if the shield is up for the player, if it is then nothing happens
-            if (enemy.isShieldUp)
+            if (shield.isShieldUp)
             {
                 
             }
