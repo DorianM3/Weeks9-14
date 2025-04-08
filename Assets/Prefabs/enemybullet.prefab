@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: f8a3b18619ac32649ae29357c60e41e7, type: 3}
   m_Color: {r: 1, g: 0.042452812, b: 0.042452812, a: 1}
   m_FlipX: 1
@@ -101,6 +101,5 @@ MonoBehaviour:
   collideCheck:
     m_PersistentCalls:
       m_Calls: []
-  check: 0
   bulletspeed: {x: 0, y: 0}
   enemy: {fileID: 0}
