@@ -98,3 +98,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  player: {fileID: 5709119857869357807}
+  newbullet: {fileID: 5121259939073572295}

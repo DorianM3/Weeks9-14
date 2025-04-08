@@ -10,7 +10,8 @@ public class EnemyShooting : MonoBehaviour
     public bool canShoot;
     public GameObject bullet;
     public float timer;
-    public float bulletSpeed; 
+    public float bulletSpeed;
+    public SpriteRenderer player; 
 
     public UnityEvent shoot;
 
@@ -20,6 +21,8 @@ public class EnemyShooting : MonoBehaviour
     }
     void Update()
     {
+        
+
         StartCoroutine(EnemyBulletInterval());
 
         if (canShoot)
@@ -52,6 +55,6 @@ public class EnemyShooting : MonoBehaviour
     public void EnemyBulletSpawn()
     {
         GameObject enemyBullet = Instantiate(bullet);
-        Destroy(enemyBullet, 3.2f);
+        Destroy(enemyBullet, 3.4f);
     }
 }

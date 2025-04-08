@@ -31,7 +31,7 @@ public class Shooting : MonoBehaviour
     {
 
         GameObject newbullet = Instantiate(bullet);
-        Destroy(newbullet, 3.2f); 
+        Destroy(newbullet, 3.2f);
         
     }
 }
