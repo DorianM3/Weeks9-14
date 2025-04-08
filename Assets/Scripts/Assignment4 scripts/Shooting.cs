@@ -7,6 +7,7 @@ using UnityEngine.Events;
 
 public class Shooting : MonoBehaviour
 {
+    //Sets up all required variables for the code 
     public UnityEvent shoot;
     public UnityEvent scoreUp; 
 
@@ -16,26 +17,33 @@ public class Shooting : MonoBehaviour
     public int scorecount; 
     public TextMeshProUGUI score;
 
-    // Start is called before the first frame update
+    public bool isGameOver;
+
     void Start()
     {
-        
+        isGameOver = false; 
     }
 
-    // Update is called once per frame
     void Update()
     {
-        Vector2 characterclick = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        if (Input.GetMouseButtonDown(0))
+        //All of update is surrounded by a check so controls can be turned off in the case the gameover condition is met 
+        if (isGameOver == false)
         {
-            if (player.bounds.Contains(characterclick))
+            //Checks if the player is clicking on the player sprite 
+            Vector2 characterclick = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            if (Input.GetMouseButtonDown(0))
             {
-                scoreUp.Invoke(); 
-                shoot.Invoke(); 
+                //If the player does click on the player sprite, makes the score go up by 1 and invokes the shoot event to send a bullet 
+                if (player.bounds.Contains(characterclick))
+                {
+                    scoreUp.Invoke();
+                    shoot.Invoke();
+                }
             }
         }
     }
 
+    //What shoot.Invoke activates, allows for a bullet to be instantiated and destroyed when it comes into contact with the enemy
     public void BulletSpawn()
     { 
         GameObject newbullet = Instantiate(bullet);
@@ -43,11 +51,13 @@ public class Shooting : MonoBehaviour
         
     }
 
+    //Takedamage event which if occuring results in every script effectively turning off to signal to the player that they should restart 
     public void TakeDamage()
     {
-        Debug.Log("ow"); 
+        isGameOver = true;
     }
 
+    //What scoreUp.Invoke activates, increasing the score seen on screen to keep track of how many shots and shield uses you've had 
     public void ScoreTrack()
     {
         scorecount += 1;
