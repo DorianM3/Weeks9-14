@@ -1,27 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UIElements;
 
 public class EnemyBullet : MonoBehaviour
 {
     public float speed;
+    public UnityEvent collideCheck;
+    public bool check;
+    public Vector2 bulletspeed;
+    public Shield enemy; 
+
 
     // Start is called before the first frame update
     void Start()
     {
         speed = -5;
+        check = false; 
     }
 
     // Update is called once per frame
     void Update()
     {
+
         Vector2 bulletspeed = transform.position;
         bulletspeed.x += speed * Time.deltaTime;
         transform.position = bulletspeed;
 
-        if (bulletspeed.x >= -9.5f && bulletspeed.x <= -8.1f)
+        if (transform.position.x >= -9.5f && transform.position.x <= -8.1f)
         {
-            Debug.Log("meow"); 
+            if (enemy.isShieldUp)
+            {
+                Debug.Log("hi"); 
+            }
+
+            else
+            {
+                collideCheck.Invoke(); 
+            }
+            
         }
     }
 }

@@ -34,4 +34,9 @@ public class Shooting : MonoBehaviour
         Destroy(newbullet, 3.2f);
         
     }
+
+    public void TakeDamage()
+    {
+        Debug.Log("ow"); 
+    }
 }

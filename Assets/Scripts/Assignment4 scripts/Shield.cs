@@ -8,23 +8,19 @@ public class Shield : MonoBehaviour
     public UnityEvent shieldMe;
     public SpriteRenderer enemy;
     public GameObject shield;
+
     public bool cooldown;
-    public float time;
-    public float cooldownSpeed; 
+
+    public bool isShieldUp;
     // Start is called before the first frame update
     void Start()
     {
         cooldown = true;
-        cooldownSpeed = 2;  
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(cooldown == false)
-        {
-            StartCoroutine(ShieldCooldownTimer());
-        }
 
         Vector2 enemyclick = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         if (Input.GetMouseButtonDown(0))
@@ -35,34 +31,53 @@ public class Shield : MonoBehaviour
             }
         }
     }
-
+    GameObject shieldspawn;
     public void ShieldSpawn()
     {
         if (cooldown)
         {
-            GameObject shieldspawn = Instantiate(shield);
-            Destroy(shieldspawn, 0.5f);
+            shieldspawn = Instantiate(shield);
             cooldown = false;
-            time = 1; 
-        }
-
-        
+            StartCoroutine(ShieldCooldownTimer());
+            StartCoroutine(ShieldDestroyTimer());
+        } 
     }
 
     IEnumerator ShieldCooldownTimer()
     {
-        while (time < 1000)
+        float time = 0f; 
+        while (time < 5)
         {
-          time += cooldownSpeed * Time.deltaTime;
+          time += Time.deltaTime;
           yield return null;  
         }
 
-        if(time >= 1000)
+        if(time >= 5)
         {
             cooldown = true;
-            StopCoroutine(ShieldCooldownTimer()); 
         }
         
        
+    }
+
+    IEnumerator ShieldDestroyTimer()
+    {
+        float time = 0f;
+        isShieldUp = true;
+        while (time < 1f)
+        {
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        if (time >= 1f)
+        {
+            Destroy(shieldspawn);
+            isShieldUp = false;
+        }
+
+        
+
+
     }
 }

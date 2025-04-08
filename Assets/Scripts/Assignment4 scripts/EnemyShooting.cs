@@ -6,29 +6,22 @@ using UnityEngine.Events;
 
 public class EnemyShooting : MonoBehaviour
 {
-    public float time;
     public bool canShoot;
     public GameObject bullet;
-    public float timer;
-    public float bulletSpeed;
-    public SpriteRenderer player; 
-
     public UnityEvent shoot;
+    public Shooting playerscript;
+
+    public Shield enemy;
 
     private void Start()
-    {
-        bulletSpeed = 2; 
+    { 
+       StartCoroutine(EnemyBulletInterval());
     }
     void Update()
-    {
-        
-
-        StartCoroutine(EnemyBulletInterval());
-
+    { 
         if (canShoot)
         {
             canShoot = false;
-            time = 0; 
             shoot.Invoke(); 
 
         }
@@ -36,17 +29,20 @@ public class EnemyShooting : MonoBehaviour
 
     IEnumerator EnemyBulletInterval()
     {
-        timer = 2000; 
-        while (time < timer)
+        while (true)
         {
-            time += bulletSpeed * Time.deltaTime / 5;
-            yield return null;
-        }
+            float time = 0;
+            float timer = Random.Range(10, 12);
+            while (time < timer)
+            {
+                time += Time.deltaTime;
+                yield return null;
+            }
 
-        if (time >= timer)
-        {
-            canShoot = true;
-            StopCoroutine(EnemyBulletInterval());
+            if (time >= timer)
+            {
+                canShoot = true;
+            }
         }
 
 
@@ -54,7 +50,12 @@ public class EnemyShooting : MonoBehaviour
 
     public void EnemyBulletSpawn()
     {
-        GameObject enemyBullet = Instantiate(bullet);
-        Destroy(enemyBullet, 3.4f);
+        GameObject redbullet = Instantiate(bullet);
+        EnemyBullet getbullets = redbullet.GetComponent<EnemyBullet>(); 
+
+        getbullets.collideCheck.AddListener(playerscript.TakeDamage);
+        getbullets.enemy = enemy; 
+        Destroy(redbullet, 3.2f);
+        
     }
 }
