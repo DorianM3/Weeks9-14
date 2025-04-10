@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class FollowTheMouse : MonoBehaviour
 {
-    public SpriteRenderer sr; 
+    public SpriteRenderer sr;
+    public GameObject prefab; 
     void Update()
     {
         Vector2 mousepos;
@@ -14,6 +15,12 @@ public class FollowTheMouse : MonoBehaviour
         if(Input.GetKeyDown("space") == true)
         {
             sr.color = Random.ColorHSV();
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            GameObject storeprefab = Instantiate(prefab, transform.position, transform.rotation);
+            
         }
     }
 }
